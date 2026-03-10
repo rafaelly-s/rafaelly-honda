@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Honda Revemar — CPF Aprovado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Cores do Novo Tema: Promoção CPF Aprovado */
+            --red-honda: #c8102e;
+            --primary-blue: #0033a0;
+            --dark-blue: #001233;
+            --cyan-glow: #00e5ff;
+            --gold-text: #ffcc00;
+            --gold-dark: #b8860b;
+            --card-white: #ffffff;
+            --bg-dark: #000814;
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #001845 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* FUNDO DE PARTÍCULAS (Canvas) */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        header {
+            background: rgba(0, 10, 30, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid transparent;
+            border-image: linear-gradient(to right, var(--primary-blue), var(--cyan-glow), var(--gold-text), var(--primary-blue)) 1;
+            position: sticky;
+            top: 0; z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+        }
+
+        .logo-campanha {
+            height: 45px;
+            filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.5));
+        }
+
+        .header-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .logo-cpf-aprovado {
+            height: 90px; /* Tamanho da logo no canto superior direito */
+            margin-top: 90px;
+            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.4));
+        }
+
+        /* AREA DO VENDEDOR NO TOPO */
+        .vendedor-topo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 5% 10px 5%;
+            position: relative;
+            
+        }
+
+
+        .vendedor-moldura {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-blue), var(--cyan-glow), var(--gold-text));
+            padding: 4px;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+            animation: pulseTech 2s infinite;
+        }
+
+        .vendedor-moldura img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+        }
+
+        .vendedor-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vendedor-info .cargo {
+            font-size: 0.8rem;
+            color: var(--cyan-glow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
+        }
+
+        .vendedor-info .nome-vendedor {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 2px 2px 0px var(--primary-blue);
+        }
+
+        /* BOTÃO DO INSTAGRAM */
+        .btn-insta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            width: fit-content;
+            box-shadow: 0 4px 10px rgba(220, 39, 67, 0.4);
+            transition: transform 0.2s;
+        }
+        
+
+        .btn-insta:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-insta svg {
+            width: 16px; 
+            height: 16px; 
+            fill: currentColor;
+        }
+        .logo-extra-topo {
+    max-height: 90px;
+    max-width: 150px;
+    object-fit: contain;
+    margin-left: auto;
+}
+
+        @keyframes pulseTech {
+            0% { box-shadow: 0 0 15px var(--primary-blue); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--cyan-glow); transform: scale(1.05); }
+            100% { box-shadow: 0 0 15px var(--primary-blue); transform: scale(1); }
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        .section-title {
+            text-align: center;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin: 40px 0 60px 0;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--gold-text), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-bottom: 2px dashed rgba(0, 229, 255, 0.3);
+            padding-bottom: 20px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+        }
+
+        .moto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .moto-card {
+            background: var(--card-white);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: transform 0.3s;
+        }
+        
+        .moto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Topo do Card com gradiente sutil */
+        .moto-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--cyan-glow), var(--gold-text));
+            z-index: 20;
+        }
+
+        .moto-stage {
+            height: 250px;
+            background: radial-gradient(circle at center, #ffffff 0%, #e0f7fa 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .placa-ano {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: var(--dark-blue);
+            color: var(--cyan-glow);
+            padding: 5px 15px;
+            font-weight: 900;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 10;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            border: 1px solid var(--cyan-glow);
+            letter-spacing: 1px;
+        }
+
+        .decoracao-pendurada {
+            position: absolute;
+            top: 0; right: 20px;
+            width: 100px;
+            animation: floating 4s ease-in-out infinite;
+            z-index: 5;
+            filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.2));
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+        }
+
+        .moto-img {
+            width: 85%;
+            z-index: 3;
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.1));
+            transition: opacity 0.2s;
+        }
+
+        .burnout-smoke {
+            position: absolute;
+            bottom: 40px; left: 50%;
+            width: 100px; height: 40px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, transparent 70%); /* Fumaça azul cyan */
+            filter: blur(10px);
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .pneu-mark {
+            position: absolute;
+            bottom: 50px; left: 45%;
+            width: 0; height: 8px;
+            background: #222;
+            border-radius: 10px;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .animate-drive { 
+            animation: driveLoop 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards; 
+        }
+        
+        @keyframes driveLoop {
+            0% { transform: translateX(0) scale(1); opacity: 1; }
+            10% { transform: translateX(-30px) rotate(-2deg); } 
+            45% { transform: translateX(130vw) scale(1); opacity: 1; }
+            46% { opacity: 0; transform: translateX(-130vw) scale(1); }
+            48% { opacity: 1; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        .card-info { padding: 25px; color: #111; text-align: center; background: #fff; }
+        .moto-name { font-size: 1.5rem; font-weight: 900; margin: 0; color: var(--dark-blue); }
+        .moto-price { color: var(--primary-blue); font-size: 1.3rem; font-weight: 800; margin: 10px 0; }
+
+        .btn-box { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-action {
+            flex: 1; padding: 15px; border-radius: 5px; /* Botões mais retos e modernos */
+            text-decoration: none; font-weight: 800;
+            text-transform: uppercase; font-size: 0.75rem;
+            transition: 0.3s; text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .btn-fin { 
+            background: linear-gradient(90deg, var(--primary-blue), #0044cc); color: white; 
+            box-shadow: 0 5px 15px rgba(0, 51, 160, 0.4);
+            border: 1px solid var(--primary-blue);
+        }
+        .btn-fin:hover { background: var(--dark-blue); transform: scale(1.05); }
+
+        .btn-cons { 
+            background: #fff; color: var(--primary-blue); 
+            border: 2px solid var(--primary-blue);
+        }
+        .btn-cons:hover { background: var(--primary-blue); color: #fff; transform: scale(1.05); }
+
+        .agente-ia {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg,#25D366,#1ebe5d);
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 20px 45px rgba(0,0,0,.35);
+            animation: flutuar 2.5s ease-in-out infinite;
+            z-index: 9999;
+        }
+        .agente-foto { width: 52px; height: 52px; border-radius: 50%; border: 3px solid #fff; }
+        .agente-texto strong { color: #fff; font-size: 14px; display: block; }
+        .agente-texto span { color: #eafff3; font-size: 12px; }
+
+        @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+        @media(max-width:768px){
+            .vendedor-info .nome-vendedor { font-size: 1.3rem; }
+            .vendedor-moldura { width: 80px; height: 80px; }
+            .agente-texto { display: none; }
+            .section-title { font-size: 2rem; margin: 20px 0; }
+            header { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .header-right { align-items: flex-start; text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<header>
+    <img src="" id="logo-campanha" class="logo-campanha" alt="Honda Campanha">
+    <div class="header-right">
+        <div style="font-weight: 900; color: #fff; text-shadow: 1px 1px 0 var(--primary-blue); font-size: 1.2rem;">REVEMAR HONDA</div>
+        <div id="tema-label" style="font-size: 0.8rem; color: var(--gold-text); font-weight: bold; letter-spacing: 1px; margin-bottom: 5px;"></div>
+       
+</header>
+
+<div class="vendedor-topo">
+    <div class="vendedor-moldura">
+        <img src="https://i.imgur.com/zUqGSjz.png" alt="Rafaelly">
+    </div>
+    
+    <div class="vendedor-info">
+        <span class="cargo">Consultora de Vendas</span>
+        <span class="nome-vendedor">RAFAELLY HONDA</span>
+        <span style="font-size: 0.8rem; color: #aaa;">Condições exclusivas liberadas para você!</span>
+        
+        <a href="https://www.instagram.com/rafaelly_honda/" target="_blank" class="btn-insta">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            Siga meu Instagram
+        </a>
+    </div>
+</div>
+
+<main class="container">
+    <h1 class="section-title" id="titulo-principal"></h1>
+    <div class="moto-grid" id="motoGrid"></div>
+</main>
+
+<a class="agente-ia"
+href="https://wa.me/559492473785?text=Olá%20vim%20pelo%20catálogo"
+target="_blank"
+title="Fale comigo agora">
+
+    <img class="agente-foto"
+        src="https://i.imgur.com/zUqGSjz.png"
+         alt="RAFAELLY HONDA">
+
+    <div class="agente-texto">
+        <strong>RAFAELLY HONDA</strong>
+        <span>Fale comigo agora</span>
+    </div>
+</a>
+
+<script>
+// CONFIGURAÇÃO DO TEMA - CPF APROVADO
+const CONFIG_TEMA = {
+    nomeCampanha: "PROMOÇÃO EXCLUSIVA",
+    tituloSite: "CATÁLOGO CPF APROVADO",
+    logoURL: "https://image2url.com/r2/bucket2/images/1767636595479-3f4280da-bfe1-4fc5-8128-1ca92c4073c6.png", // Mantido conforme original
+    
+    // Deixei o enfeite original, mas agora ele tem animação flutuante sutil em vez de balanço de carnaval
+    enfeiteIcone: "https://image2url.com/r2/default/images/1772572693263-8f07cbb3-a571-44e4-8412-081a82ed80d9.blob", 
+    larguraEnfeite: "200px", 
+    alturaEnfeite: "300px",   
+    
+    anoVigente: "2026"
+};
+
+const MOTOS = [
+{
+  id:'POP110', nome:'POP 110i ES', ano:2026, precoAvista:'R$ 17.237',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Pop-110i-Es-Vermelho-Fighting-Red_0.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/pop-branca-lateral.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/pop-preta-3_4fd.png'
+  ]
+},
+{
+  id:'BIZ125ES', nome:'BIZ 125 ES', ano:2026, precoAvista:'R$ 20.826',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-Biz-125-ES-Preto-Black_0.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/biz-125-es-vermelho-maceio-red-lado-a-555-x-372.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/biz-125-es-branco-lado-a-350-x280.png'
+  ]
+},
+{
+  id:'BIZ125EX', nome:'BIZ 125 EX', ano:2026, precoAvista:'R$ 25.246',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Biz-125-EX-Branco-Perolizado-Pearl-Hakuji-White_0.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/biz-125-ex-azul-b-555-x372_0.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/biz-125-ex-azul-frente-555-x372_2.png'
+  ]
+},
+{
+  id:'ELITE125', nome:'Elite 125', ano:2026, precoAvista:'R$ 19.875',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Elite-125-Vermelho-Maceio-Red_0.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/elite-lateral-3_0.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/moto-prata-honda_direita-lado_0.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/elite-lateral_0_0.png'
+  ]
+},
+{
+  id:'PCX', nome:'PCX CBS', ano:2026, precoAvista:'R$ 24.767',
+  imgs:['https://www.honda.com.br/motos/sites/hda/files/2025-08/imagem-home-honda-pcx-branco_0.webp']
+},
+{
+  id:'PCXABS', nome:'PCX ABS', ano:2026, precoAvista:'R$ 26.976',
+  imgs:['https://image2url.com/r2/bucket3/images/1767705525933-5a8cc60a-5afb-45ee-bb02-4d1cc2699a64.png']
+},
+{
+  id:'HONADA_ADV', nome:'Honda ADV', ano:2026, precoAvista:'R$ 33.153',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-ADV-Prata-Met%C3%A1lico_0.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/honda-adv_-vermelha_lateral-2_0.png'
+  ]
+},
+{
+  id:'CG160START', nome:'CG 160 START', ano:2026, precoAvista:'R$ 25.288',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-home-visao-da-lateral-direita-da-honda-cg-160-start.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/cg-160-start-vermelha-lateral.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/cg-160-start-preta-lateral.png'
+  ]
+},
+{
+  id:'CG160FAN', nome:'CG 160 FAN', ano:2026, precoAvista:'R$ 27.385',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-CG-160-Fan-Vermelho-Perolizado.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/preto-metalico-infinite-black-metallic-1.png',
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-CG-160-Fan-Prata-Met%C3%A1lico.webp'
+  ]
+},
+{
+  id:'CG160TITAN', nome:'CG 160 TITAN', ano:2026, precoAvista:'R$ 29.221',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-CG-160-Titan-Cinza-Met%C3%A1lico.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/cg-160-titan-vermelha-lateral.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/cg-160-titan-preta-lateral.png'
+  ]
+},
+{
+  id:'NXR160ABS', nome:'NXR 160 BROS ABS', ano:2026, precoAvista:'R$ 33.368',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-NXR-160-Bros-ABS-Vermelho-Fighting-Red.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/2_bros-cinza-lateral-abs.png'
+  ]
+},
+{
+  id:'NXR160BRS', nome:'NXR 160 BROS CBS', ano:2026, precoAvista:'R$ 32.081',
+  imgs:[
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Honda-NXR-160-Bros-CBS-Azul-Universe-Blue.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/bros-preta-3_4te-cbs-lado_5.png'
+  ]
+},
+{
+  id:'XRE190', nome:'XRE 190', ano:2026, precoAvista:'R$ 32.170',
+  imgs:['https://www.motopel.com.br/site/wp-content/uploads/2021/02/xre-190-azul.webp']
+},
+{
+  id:'XR300LT', nome:'XR 300L TORNADO', ano:2026, precoAvista:'R$ 39.968',
+  imgs:['https://www.motopel.com.br/site/wp-content/uploads/2021/02/XR-300L-Tornado.webp']
+},
+{
+  id:'CRF300F', nome:'CRF 300F', ano:2026, precoAvista:'R$ 31.164',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2025/08/capa-crf-300f.webp',
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/crf300f-cor-2.webp',
+    'https://www.honda.com.br/motos/sites/hda/files/2025-08/crf300f-cor-3.webp'
+  ]
+},
+{
+  id:'CB300FTWABS', nome:'CB 300F TWISTER ABS', ano:2026, precoAvista:'R$ 34.683',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2021/02/cb-300F-twister-azul.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/lateral-vermelha_1.png'
+  ]
+},
+{
+  id:'CB300FTWCBS', nome:'CB 300F TWISTER CBS', ano:2026, precoAvista:'R$ 33.486',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2021/02/cb-300F-twister-cinza.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/lateral-vermelha-1_0.png'
+  ]
+},
+{
+  id:'SAHARA300ABS', nome:'SAHARA 300 ABS', ano:2026, precoAvista:'R$ 40.605',
+  imgs:['https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Sahara-300-Cinza-Met%C3%A1lico.webp']
+},
+{
+  id:'SAHARA300RALLY', nome:'SAHARA 300 RALLY', ano:2026, precoAvista:'R$ 41.219',
+  imgs:['https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Sahara-300-Rally-Vermelho-Victory-Red.webp']
+},
+{
+  id:'SAHARA300ADV', nome:'SAHARA 300 ADV', ano:2026, precoAvista:'R$ 41.874',
+  imgs:['https://www.honda.com.br/motos/sites/hda/files/2025-08/Imagem-Home-Sahara-300-Adventure-Bege%20Met%C3%A1lico.webp']
+},
+{
+  id:'CB500HOR', nome:'CB 500 HORNET', ano:2026, precoAvista:'R$ 52.114',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2025/07/capa-hornet-500-2026-branca.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/hornet-500_red_lateral_0.png',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/hornet-500_black_lateral_0.png'
+  ]
+},
+{
+  id:'NX500', nome:'NX 500', ano:2026, precoAvista:'R$ 55.245',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2025/07/capa-nx-500-2026-vermelha.webp',
+     
+  ]
+},
+{
+  id:'NC750X', nome:'NC 750X', ano:2026, precoAvista:'R$ 67.502',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2021/02/nc-750x-MT-prata.png.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/base-honda-nc750x1115autocopy2_0.png'
+  ]
+},
+{
+  id:'CB1000R70', nome:'CB 1000R 70%', ano:2026, precoAvista:'R$ 92.695',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2021/02/cb-1000R-black-edition.png.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/2023-cb1000r_ed_studio_red_rh-side_l_0.png'
+  ]
+},
+{
+  id:'CRF1100L', nome:'CRF 1100L AFRICA TWIN', ano:2026, precoAvista:'R$ 100.217',
+  imgs:[
+    'https://www.motopel.com.br/site/wp-content/uploads/2020/02/capa-africa-twin-mt.webp',
+    'https://d1qa0ax3fv1ims.cloudfront.net/catalogo_imagens/duas_rodas/crf_1100l_africa_twinmt_preto_fosco_hda_1-1.png'
+  ]
+}
+
+];
+
+document.getElementById('logo-campanha').src = CONFIG_TEMA.logoURL;
+document.getElementById('tema-label').innerText = CONFIG_TEMA.nomeCampanha;
+document.getElementById('titulo-principal').innerText = CONFIG_TEMA.tituloSite;
+
+function renderCards() {
+    const grid = document.getElementById('motoGrid');
+    MOTOS.forEach((m, index) => {
+        const card = document.createElement('div');
+        card.className = 'moto-card';
+        card.innerHTML = `
+            <div class="moto-stage" onclick="executarAnimacao(this, ${index})" data-current-img="0">
+                <div class="placa-ano">CPF APROVADO</div>
+                <img src="${CONFIG_TEMA.enfeiteIcone}" class="decoracao-pendurada">
+                <div class="burnout-smoke"></div>
+                <div class="pneu-mark"></div>
+                <img src="${m.imgs[0]}" class="moto-img">
+            </div>
+            <div class="card-info">
+                <h3 class="moto-name">${m.nome}</h3>
+                <div class="moto-price">À vista ${m.precoAvista}</div>
+
+                <div class="btn-box">
+                    <a href="financiamento.html?moto=${m.id}" class="btn-action btn-fin">Financiar</a>
+                    <a href="Consórcio.html?moto=${m.id}" class="btn-action btn-cons">Consórcio</a>
+                </div>
+            </div>`;
+        grid.appendChild(card);
+    });
+}
+
+function executarAnimacao(stage, motoIndex) {
+    const motoImgElement = stage.querySelector('.moto-img');
+    const smoke = stage.querySelector('.burnout-smoke');
+    const mark = stage.querySelector('.pneu-mark');
+    const motoData = MOTOS[motoIndex];
+
+    if (motoImgElement.classList.contains('animate-drive')) return;
+
+    // Fumaça e Marca
+    smoke.style.opacity = "1";
+    mark.style.width = "120px";
+    mark.style.transition = "width 0.4s";
+
+    // Inicia Corrida
+    setTimeout(() => { 
+        motoImgElement.classList.add('animate-drive'); 
+        smoke.style.opacity = "0"; 
+    }, 500);
+
+    // TROCA A COR quando estiver fora da tela
+    setTimeout(() => {
+        if(motoData.imgs.length > 1) {
+            let currentIdx = parseInt(stage.getAttribute('data-current-img'));
+            let nextIdx = (currentIdx + 1) % motoData.imgs.length;
+            
+            motoImgElement.src = motoData.imgs[nextIdx];
+            stage.setAttribute('data-current-img', nextIdx);
+        }
+    }, 1300);
+
+    // Reset da animação
+    setTimeout(() => { 
+        motoImgElement.classList.remove('animate-drive'); 
+        mark.style.width = "0"; 
+    }, 2800);
+}
+
+// CANVAS TECH PARTICLES (SUBSTITUI O CONFETE)
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+const techColors = ['#0033a0', '#00e5ff', '#ffcc00', '#ffffff']; // Cores do novo tema
+
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+window.addEventListener('resize', resize);
+resize();
+
+class TechParticle {
+    constructor() { this.reset(true); }
+    
+    reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
+        this.vx = (Math.random() - 0.5) * 1; 
+        this.vy = -(Math.random() * 1.5 + 0.5); // Sobem lentamente
+        this.size = Math.random() * 4 + 1;
+        this.color = techColors[Math.floor(Math.random() * techColors.length)];
+        this.alpha = Math.random() * 0.5 + 0.3;
+    }
+
+    update() {
+        this.y += this.vy;
+        this.x += this.vx;
+
+        if (this.y < -10) this.reset();
+    }
+
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+for(let i=0; i<80; i++) particles.push(new TechParticle()); 
+
+function animateBG() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateBG);
+}
+
+renderCards();
+animateBG();
+</script>
+</body>
+</html>
