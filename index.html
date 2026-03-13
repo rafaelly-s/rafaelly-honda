@@ -62,7 +62,10 @@
             align-items: flex-end;
         }
 
-
+        .logo-cpf-aprovado {
+            height: 90px; /* Tamanho da logo no canto superior direito */
+            margin-top: 90px;
+            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.4));
         }
 
         /* AREA DO VENDEDOR NO TOPO */
@@ -72,8 +75,7 @@
             gap: 20px;
             padding: 40px 5% 10px 5%;
             position: relative;
-            flex-direction: row;
-            
+
         }
 
 
@@ -135,7 +137,7 @@
             box-shadow: 0 4px 10px rgba(220, 39, 67, 0.4);
             transition: transform 0.2s;
         }
-        
+
 
         .btn-insta:hover {
             transform: scale(1.05);
@@ -191,7 +193,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.8);
             transition: transform 0.3s;
         }
-        
+
         .moto-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
@@ -276,7 +278,7 @@
         .animate-drive { 
             animation: driveLoop 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards; 
         }
-        
+
         @keyframes driveLoop {
             0% { transform: translateX(0) scale(1); opacity: 1; }
             10% { transform: translateX(-30px) rotate(-2deg); } 
@@ -351,19 +353,25 @@
     <div class="header-right">
         <div style="font-weight: 900; color: #fff; text-shadow: 1px 1px 0 var(--primary-blue); font-size: 1.2rem;">REVEMAR HONDA</div>
         <div id="tema-label" style="font-size: 0.8rem; color: var(--gold-text); font-weight: bold; letter-spacing: 1px; margin-bottom: 5px;"></div>
-       
+    class="header-right">
+        style="font-weight: 900; color: #fff; text-shadow: 1px 1px 0 var(--primary-blue); font-size: 1.2rem;">REVEMAR HONDA</div>
+        id="tema-label" style="font-size: 0.8rem; color: var(--gold-text); font-weight: bold; letter-spacing: 1px; margin-bottom: 5px;"></div>
+
 </header>
 
 <div class="vendedor-topo">
     <div class="vendedor-moldura">
+class="vendedor-topo">
+    class="vendedor-moldura">
         <img src="https://i.imgur.com/zUqGSjz.png" alt="Rafaelly">
     </div>
-    
+
     <div class="vendedor-info">
+    class="vendedor-info">
         <span class="cargo">Consultora de Vendas</span>
         <span class="nome-vendedor">RAFAELLY HONDA</span>
         <span style="font-size: 0.8rem; color: #aaa;">Condições exclusivas liberadas para você!</span>
-        
+
         <a href="https://www.instagram.com/rafaelly_honda/" target="_blank" class="btn-insta">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             Siga meu Instagram
@@ -374,6 +382,7 @@
 <main class="container">
     <h1 class="section-title" id="titulo-principal"></h1>
     <div class="moto-grid" id="motoGrid"></div>
+    class="moto-grid" id="motoGrid"></div>
 </main>
 
 <a class="agente-ia"
@@ -386,6 +395,7 @@ title="Fale comigo agora">
          alt="RAFAELLY HONDA">
 
     <div class="agente-texto">
+    class="agente-texto">
         <strong>RAFAELLY HONDA</strong>
         <span>Fale comigo agora</span>
     </div>
@@ -397,12 +407,12 @@ const CONFIG_TEMA = {
     nomeCampanha: "SEU SONHO COMEÇA AQUI",
     tituloSite: "CATÁLOGO DE MOTOS",
     logoURL: "https://image2url.com/r2/bucket2/images/1767636595479-3f4280da-bfe1-4fc5-8128-1ca92c4073c6.png", // Mantido conforme original
-    
+
     // Deixei o enfeite original, mas agora ele tem animação flutuante sutil em vez de balanço de carnaval
     enfeiteIcone: "https://image2url.com/r2/default/images/1772572693263-8f07cbb3-a571-44e4-8412-081a82ed80d9.blob", 
     larguraEnfeite: "200px", 
     alturaEnfeite: "300px",   
-    
+
     anoVigente: "2026"
 };
 
@@ -547,7 +557,7 @@ const MOTOS = [
   id:'NX500', nome:'NX 500', ano:2026, precoAvista:'R$ 55.245',
   imgs:[
     'https://www.motopel.com.br/site/wp-content/uploads/2025/07/capa-nx-500-2026-vermelha.webp',
-     
+
   ]
 },
 {
@@ -585,17 +595,25 @@ function renderCards() {
         card.className = 'moto-card';
         card.innerHTML = `
             <div class="moto-stage" onclick="executarAnimacao(this, ${index})" data-current-img="0">
-                <div class="placa-ano">MOTO 0KM</div>
+                <div class="placa-ano">CPF APROVADO</div>
                 <img src="${CONFIG_TEMA.enfeiteIcone}" class="decoracao-pendurada">
                 <div class="burnout-smoke"></div>
                 <div class="pneu-mark"></div>
+            class="moto-stage" onclick="executarAnimacao(this, ${index})" data-current-img="0">
+                
+                
+                class="burnout-smoke"></div>
+                class="pneu-mark"></div>
                 <img src="${m.imgs[0]}" class="moto-img">
             </div>
             <div class="card-info">
+            class="card-info">
                 <h3 class="moto-name">${m.nome}</h3>
                 <div class="moto-price">À vista ${m.precoAvista}</div>
+                class="moto-price">À vista ${m.precoAvista}</div>
 
                 <div class="btn-box">
+                class="btn-box">
                     <a href="financiamento.html?moto=${m.id}" class="btn-action btn-fin">Financiar</a>
                     <a href="Consórcio.html?moto=${m.id}" class="btn-action btn-cons">Consórcio</a>
                 </div>
@@ -628,7 +646,7 @@ function executarAnimacao(stage, motoIndex) {
         if(motoData.imgs.length > 1) {
             let currentIdx = parseInt(stage.getAttribute('data-current-img'));
             let nextIdx = (currentIdx + 1) % motoData.imgs.length;
-            
+
             motoImgElement.src = motoData.imgs[nextIdx];
             stage.setAttribute('data-current-img', nextIdx);
         }
@@ -653,7 +671,7 @@ resize();
 
 class TechParticle {
     constructor() { this.reset(true); }
-    
+
     reset(initial = false) {
         this.x = Math.random() * canvas.width;
         this.y = initial ? Math.random() * canvas.height : canvas.height + 10;
@@ -694,4 +712,3 @@ renderCards();
 animateBG();
 </script>
 </body>
-</html>
